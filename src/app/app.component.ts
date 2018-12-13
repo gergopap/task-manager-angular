@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppModel } from './app.model';
+import { AppModel, AppInterface } from './app.model';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,14 @@ export class AppComponent {
 
   public appModel = new AppModel();
 
+  public appImpl: AppInterface = <AppInterface>{};
+
   constructor() {
   }
 
   public showAppModelValue() {
-    console.log(this.appModel)
+    console.log(this.appModel);
+    this.appImpl.text;
   }
 
   //public changeChecked(isChecked: Event) {

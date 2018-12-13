@@ -14,3 +14,10 @@ export enum category {
   SHOPPING = 'SHOPPING',
   TRAVEL = 'TRAVEL'
 }
+
+export interface AppInterface {
+  title?: string;
+  checked?: boolean;
+  category?: category;
+  text?: string;
+}
