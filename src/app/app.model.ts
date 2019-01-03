@@ -1,23 +1,24 @@
+
 export class AppModel {
-  constructor(
-    public title?: string,
-    public checked = false,
-    public category?: string,
-    public text?: string
-  ) {
-    Object.keys(category);
-  }
+
+    constructor(public title?: string,
+        public checked: boolean = false,
+        public category?: Category,
+        public text?: string) {
+    }
+
 }
-export enum category {
-  BILLING = 'BILLING',
-  HOUSE = 'HOUSE',
-  SHOPPING = 'SHOPPING',
-  TRAVEL = 'TRAVEL'
+
+export enum Category {
+    BILLING = 'BILLING',
+    HOUSE = 'HOUSE',
+    SHOPPING = 'SHOPPING',
+    TRAVEL = 'TRAVEL'
 }
 
 export interface AppInterface {
-  title?: string;
-  checked?: boolean;
-  category?: category;
-  text?: string;
+    title?: string;
+    checked?: boolean;
+    category?: Category;
+    text?: string;
 }
