@@ -2,6 +2,7 @@ import { Component, TemplateRef } from '@angular/core';
 import { AppModel, AppInterface } from './app.model';
 import { SignUpModel } from './sign-up.model';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { TaskService } from './services/task.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  public rocketData: string[];
 
   public taskModel = new AppModel();
 
@@ -23,8 +26,16 @@ export class AppComponent {
   modalRef: BsModalRef;
 
   constructor(
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private taskService: TaskService
   ) {
+  }
+
+  public getRocketData() {
+    this.taskService.getRockets().subscribe((response) => {
+      console.log(response);
+      this.rocketData = response.map(rocket => rocket.name);
+    });
   }
 
   public showNewTask(modalContent: TemplateRef<any>) {
