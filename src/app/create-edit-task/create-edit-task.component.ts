@@ -12,7 +12,7 @@ export class CreateEditTaskComponent implements OnInit {
   @Input('model') appModel: AppModel;
 
   // tslint:disable-next-line:no-output-rename
-  @Output('show') showModelValue = new EventEmitter();
+  @Output('save') showModelValue = new EventEmitter();
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class CreateEditTaskComponent implements OnInit {
   }
 
   public showAppModelValue() {
-    this.showModelValue.emit(this.appModel);
+    this.showModelValue.emit(Object.assign({}, this.appModel));
   }
 
 }

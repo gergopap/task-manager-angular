@@ -1,0 +1,21 @@
+<form>
+  <h1>{{ activatedRoute.snapshot.data.title }}</h1>
+  <div class="form-group">
+  <label for="username">Username: </label>
+  <input type="text"
+  [(ngModel)] = "user.username"
+  class="form-controll"
+    name="Username"
+    id="username">
+  <br>
+  <label for="password">Password: </label>
+  <input type="password"
+  class="form-controll"
+  [(ngModel)] = "user.password"
+    name="password"
+    id="password">
+  </div>
+  <br>
+  <button class="btn-primary"
+  (click)="login()">Login</button>
+</form>

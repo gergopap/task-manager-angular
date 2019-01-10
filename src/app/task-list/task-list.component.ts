@@ -1,25 +1,25 @@
-import { Component, TemplateRef, OnInit } from '@angular/core';
-import { AppModel, AppInterface } from './app.model';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { AppModel, AppInterface } from '../app.model';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
-import { TaskService } from './services/task.service';
+import { TaskService } from '../services/task.service';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-task-list',
+  templateUrl: './task-list.component.html',
+  styleUrls: ['./task-list.component.css']
 })
-export class AppComponent implements OnInit {
+export class TaskListComponent implements OnInit {
 
-  public rocketData: string[];
+  public modalRef: BsModalRef;
 
   public taskModel = new AppModel();
 
   public appImpl: AppInterface = <AppInterface>{};
 
-
-
-  public modalRef: BsModalRef;
   public tasks: AppModel[] = [];
+
+
 
   constructor(
     private modalService: BsModalService,
@@ -33,12 +33,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  public getRocketData() {
-    this.taskService.getRockets().subscribe((response) => {
-      // console.log(response);
-      this.rocketData = response.map(rocket => rocket.name);
-    });
-  }
 
   public showNewTask(modalContent: TemplateRef<any>) {
     this.taskModel = new AppModel();
@@ -54,7 +48,4 @@ export class AppComponent implements OnInit {
     this.modalRef.hide();
     this.tasks.push(event);
   }
-
-
-
 }

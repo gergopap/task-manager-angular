@@ -1,0 +1,32 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">
+    Add new task
+    <a class="btn btn-primary"
+      style="cursor: pointer; color: whitesmoke;"
+      (click)="showNewTask(add_task_modal)">+</a>
+  </h1>
+  <!-- <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example.
+    It’s built with default Bootstrap components and utilities with little customization.</p> -->
+</div>
+
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+    <div *ngFor="let task of tasks; let i = index"
+      class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{ task.title }}</h4>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title pricing-card-title">
+          Category: {{ task.category }}
+        </h3>
+        <p>
+          {{ task.text }}
+        </p>
+        <button type="button"
+          (click)="editList(i, add_task_modal)"
+          class="btn btn-lg btn-block btn-outline-primary">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
